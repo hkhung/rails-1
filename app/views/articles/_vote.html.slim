@@ -1,0 +1,3 @@
+.articles-vote-container
+	= link_to 'This is Funny!', [:like, @article], method: :post, class: 'btn-vote-like'
+	= link_to 'This is not funny!',[:dislike, @article], method: :post, class: 'btn-vote-dislike' 

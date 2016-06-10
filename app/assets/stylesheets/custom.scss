@@ -1,0 +1,30 @@
+.btn-vote-dislike {
+	@extend .btn;
+	@extend .green;
+	@extend .darken-1;
+}
+.btn-vote-like {
+	@extend .btn;
+	@extend .blue;
+	@extend .darken-1;
+}
+.btn-delete {
+	@extend .btn;
+	@extend .red;
+	@extend .darken-2;
+}
+.btn-edit {
+	@extend .btn;
+	@extend .blue;
+	@extend .darken-2;
+}
+.btn-delete-floating {
+	@extend .btn-floating;
+	@extend .red;
+	@extend .darken-2;
+}
+.btn-edit-floating {
+	@extend .btn-floating;
+	@extend .blue;
+	@extend .darken-2;
+}

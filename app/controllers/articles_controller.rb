@@ -1,12 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :set_article]
   before_action :set_article, only: [:show, :edit, :update, :destroy]	
-  before_action :set_vote, only: [:index, :show]  
+  before_action :set_vote, only: [:index, :show] 
+
   def index
-    @articles = Article.all
-    @articles = Article.canRead(current_user.id) if current_user
-    @articles = @articles.limit(1)
-    @vote     = ArticleUser.new
+    @article  = @vote_handler.next_joke
   end
 
   def new
@@ -39,7 +37,24 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
+
+  def like
+    @vote_handler = VoteHandler.new({user_id: current_user.id, article_id: params[:id]})
+    @vote_handler.vote('like')
+    redirect_to articles_path
+  end
+
+  def dislike
+    @vote_handler = VoteHandler.new({user_id: current_user.id, article_id: params[:id]})
+    @vote_handler.vote('dislike')
+    redirect_to articles_path
+  end
   
+  def unvote
+    @vote_handler = VoteHandler.new({user_id: current_user.id, article_id: params[:id]})
+    @vote_handler.delete
+    redirect_to users_path
+  end
   private
 
   def set_article 
@@ -47,7 +62,11 @@ class ArticlesController < ApplicationController
   end
 
   def set_vote
-    @vote     = ArticleUser.new
+    if user_signed_in?
+      @vote_handler = VoteHandler.new({user_id: current_user.id})
+    else
+      @vote_handler = VoteHandler.new
+    end
   end
 
   def params_article

@@ -13,7 +13,7 @@ describe User do
 
   context 'associations' do 
     it { is_expected.to have_many :articles }
-  	it { is_expected.to have_many :voted }
+  	it { is_expected.to have_many :votes }
   end
 
   describe '#name' do 

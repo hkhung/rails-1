@@ -1,6 +1,7 @@
 
-@import "materialize";
-@import "materialize/extras/nouislider";
+@import "materialize"; 
+@import "custom"; 
+@import "theme"; 
 @import "font";
 @import "font-awesome";
 
@@ -8,8 +9,12 @@
 @import "layouts/header";
 @import "layouts/footer";
 
-@import "articles/_article";
-@import "articles/_form_vote";
+@import "articles/_article"; 
 
 @import "shared/_bannertext";
+
 @import "users/index";
+
+@import "devise/devise";
+@import "devise/signin";
+@import "devise/signup";

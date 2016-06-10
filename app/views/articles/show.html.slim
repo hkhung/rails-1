@@ -1,20 +1,9 @@
 #articles-index-container 
-	article
-		- if !@article.nil?
-			.article-banner
-				.container
-					.row
-						.col.s12.m10.offset-m1.center-align
-							h1.title = @article.title
-							p = @article.excerpt
-			.article-content
-				.container
-					.row
-						.col.s12.article-detail
-							= simple_format @article.content
-						.col.s12.article-button.center-align
-							- if own_article(@article.id) 
-								= link_to 'Edit', edit_article_path(@article),class: 'btn light-blue darken-4'
-								= link_to 'Destroy', article_path(@article), method: :delete, data: { confirm: "Are you sure to delete this product?" }, class: 'btn red  darken-4' 
-							- else
-								= render 'form_vote', article: @article   if !@article.nil?
+	- if !@article.nil?
+		= render 'article' , article: @article
+	.container.center-align
+		- if own_article(@article.id) 
+			= link_to edit_article_path(@article),class: 'btn-edit-floating'
+				i.material-icons mode_edit 
+			= link_to article_path(@article), method: :delete, data: { confirm: "Are you sure to delete this product?" }, class: 'btn-delete-floating' 
+				i.material-icons delete 

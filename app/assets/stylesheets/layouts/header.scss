@@ -1,22 +1,18 @@
 .layouts-header-container {
-	padding: 15px 0 3px;
-	-webkit-box-shadow: 0px 0px 12px 1px #615d5d;
-	-moz-box-shadow: 0px 0px 12px 1px #615d5d;
-	-ms-box-shadow: 0px 0px 12px 1px #615d5d;
-	-o-box-shadow: 0px 0px 12px 1px #615d5d;
-	box-shadow: 0px 0px 12px 1px #615d5d;
+	padding: 15px 0 3px; 
+	@extend .z-depth-1; 
+	
 	.container {
 		.row {
 			margin-bottom: 0;
 		}	
 	}
-	.brand-logo {
-		
-	}
+
 	.user { 
 		position: relative;
 		width:100%;
 		float: right;
+		
 		.thumb {
 			width: 60px;
 			height: 60px;
@@ -28,6 +24,7 @@
 				height:100%;
 			}
 		}
+
 		.user-info {
 			position: absolute;
 			top:0;
@@ -37,9 +34,11 @@
 			display:table;
 			font-family: Lato, "Roboto", sans-serif;
 			font-size: 14.4px;
+			
 			.user-type { 
 				color: #969696;
 			}
+
 			.user-name {
 				font-weight: bold;
 				color: #000000;

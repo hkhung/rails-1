@@ -2,25 +2,24 @@
 	.container
 		h2 Articles voted
 		table.bordered
-			tr
-				th No
+			tr 
 				th Name
 				th Voted
 				th Action
-			- current_user.voted.each do |ar|
+			- current_user.votes.each do |ar| 
 				- article = ar.article
-				tr
-					td = article.id
+				tr 
 					td = link_to article.title, article_path(article)
-					td 
-						- if ar.vote 
-							|	like 
-						- else 
-							|	unlike
-					td
-						= link_to 'Delete', article_user_path(ar) , method: :delete, data: { confirm: "Are you sure to delete vote?" }, class: 'btn blue  darken-4'  
+					td = ar.vote
+					td = link_to unvote_article_path(article) , method: :delete, data: { confirm: "Are you sure to delete vote?" }, class: 'btn-delete-floating'  
+							i.fa.fa-remove
+							|&nbsp; Delete
 	.container
 		.row
 			.col.s12
-				= link_to 'Update', edit_user_registration_path , class: 'btn blue  darken-4' 
-				= link_to 'Logout', destroy_user_session_path , method: :delete, data: { confirm: "Are you sure to logout?" }, class: 'btn red  darken-4'
+				= link_to edit_user_registration_path , class: 'btn-edit' 
+					i.material-icons mode_edit
+					|	&nbsp; Update
+				= link_to destroy_user_session_path , method: :delete, data: { confirm: "Are you sure to logout?" }, class: 'btn-delete'
+					i.material-icons fast_forward
+					|	&nbsp; Logout

@@ -1,7 +1,0 @@
-.articles-form-vote-container
-	= simple_form_for @vote do |f| 
-			= f.hidden_field :user_id,  value: current_user.id if !current_user.nil? 
-			= f.hidden_field :article_id, value:  article.id if !article.nil?   
-			= f.input_field :vote
-			= button_tag "This is Funny!", type: 'button', class: 'btn light-blue darken-4', data: { vote: 1}
-			= button_tag "This is not funny", type: 'button', class: ' btn green accent-4', data: { vote: 0}

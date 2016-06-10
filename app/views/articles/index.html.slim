@@ -1,6 +1,5 @@
 #articles-index-container 
-	- if !@articles.nil?
-		- @articles.each do |article| 
-			= render 'article', article: article  
+	- if !@article.nil?
+		= render 'article', article: @article  
 	- else
-		= render 'noarticle'
+		= render 'shared/bannertext', title: 'Not found joke article', description: ''

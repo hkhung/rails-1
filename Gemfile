@@ -19,6 +19,8 @@ gem 'font-awesome-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'rails_utils'
 gem 'ckeditor'
+gem 'enumerize'
+gem	'cancan'
 
 group :development, :test do 
   gem 'pry-rails'

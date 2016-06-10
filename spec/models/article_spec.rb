@@ -13,17 +13,7 @@ describe Article do
 
   context 'Associations' do
   	it { is_expected.to belong_to :author }
-  	it { is_expected.to have_many :voted } 
+  	it { is_expected.to have_many :votes } 
   end
-
-  describe '.canRead' do
-    let!(:articles)       { create_list(:article, 10)}
-    let!(:user)           { create(:user)}
-    let!(:article_users)  { create(:article_user, article_id: articles.first.id, user_id: user.id)}
-
-    it 'returns a list of articles' do 
-      article_users
-      expect(Article.canRead(user.id).count).to eq 9
-    end
-  end
+  
 end 

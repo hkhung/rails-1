@@ -16,7 +16,4 @@
 //= require ckeditor/init
 //= require materialize-sprockets
 //= require materialize-form
-//= require global
-//= require articles/_form_vote 
-
-
+//= require global 
