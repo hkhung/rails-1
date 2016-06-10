@@ -1,0 +1,10 @@
+.shared-manage-user-container 
+	ul#drop-manage-user.dropdown-content
+		li = link_to edit_user_registration_path , class: 'center-align' 
+					i.material-icons mode_edit
+					| Update 
+		li = link_to destroy_user_session_path , method: :delete, data: { confirm: "Are you sure to logout?" }, class: 'center-align tooltipped',  'data-tooltip': "Log out"
+					| Logout
+					i.material-icons fast_forward 
+	a.dropdown-button.btn-floating href='#' data-activates='drop-manage-user' 
+		i.material-icons power_settings_new

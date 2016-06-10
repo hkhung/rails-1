@@ -7,3 +7,5 @@
 				p 
 				| Copyright 2015 Futureworkz Pte. Ltd. - Handcrafted by 
 				a href='#' Jim Futureworkz
+	- if user_signed_in?
+			= render 'shared/manage_user'

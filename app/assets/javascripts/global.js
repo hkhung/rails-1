@@ -1,3 +1,4 @@
 (function($) {  
-	window.materializeForm.init();  	
-})(jQuery);
+	window.materializeForm.init();
+	$('.tooltipped').tooltip({delay: 50});  	
+})(jQuery); 

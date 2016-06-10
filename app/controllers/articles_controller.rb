@@ -9,10 +9,11 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    authorize! :create, @article
   end
 
   def create
-    @article = Article.new(params_article)
+    @article = Article.new(params_article, author_id: current_user.id)
     
     if @article.save
       redirect_to @article
@@ -24,6 +25,7 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def update
+    authorize! :update, @article
     if @article.update(params_article)
       redirect_to @article
     else
@@ -34,6 +36,7 @@ class ArticlesController < ApplicationController
   def show; end
 
   def destroy
+    authorize! :destroy, @article
     @article.destroy
     redirect_to articles_path
   end
