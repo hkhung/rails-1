@@ -1,0 +1,23 @@
+.layouts-header-container
+	.container
+		.row
+			.col.s12.m4.l4
+				= link_to root_path, class: 'brand-logo' do
+					= image_tag 'layouts/logo.png'	
+			.col.s12.m8.l8.right-align
+				-	if user_signed_in?
+						.user.user-logined
+							.thumb
+								= image_tag current_user.image.url(:thumb) 
+							.user-info
+								i.user-type Handicrafted by
+								br  
+								=link_to current_user.name, users_path, class: 'user-name'
+				- else
+						.user.user-login
+							.user-info
+							=link_to 'Sign in', new_user_session_path, class: 'user-name'
+							| &nbsp;&nbsp;&nbsp;
+							=link_to 'Sign up', new_user_registration_path, class: 'user-name'
+
+

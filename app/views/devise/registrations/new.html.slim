@@ -1,0 +1,16 @@
+#devise-registrations-new-container
+  = render 'shared/bannertext',  title: 'Sign Up', description: ''
+  .container 
+		= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+			= f.error_notification
+			.form-inputs
+				= f.input :email, required: true, autofocus: true
+				= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+				= f.input :password_confirmation, required: true
+				= f.input :first_name, wrapper_html: {class: 's12 m6' }
+				= f.input :last_name, wrapper_html: {class: 's12 m6' } 
+			.row
+				= f.input :image, wrapper_html: {class: 's12'}
+			.form-actions
+				= f.button :submit, "Sign up"
+		= render "devise/shared/links"

@@ -1,0 +1,13 @@
+.articles-form-container
+	= simple_form_for @article do |f|
+		.row 
+			= f.input :title, wrapper_html: { class: 's12'}
+			= hidden_field_tag :author_id, current_user.id if !current_user.nil?
+		.row
+			= f.input :excerpt, rows: 10, wrapper_html: { class: 's12'}
+		.row
+			.col.s12
+				= f.cktext_area :content, rows: 30
+		.row
+			= f.input :image, wrapper_html: { class: 's12'}
+		= f.button :submit

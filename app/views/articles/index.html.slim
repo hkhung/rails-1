@@ -1,0 +1,6 @@
+#articles-index-container 
+	- if !@articles.nil?
+		- @articles.each do |article| 
+			= render 'article', article: article  
+	- else
+		= render 'noarticle'

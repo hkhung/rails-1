@@ -1,0 +1,26 @@
+#users-index-container 
+	.container
+		h2 Articles voted
+		table.bordered
+			tr
+				th No
+				th Name
+				th Voted
+				th Action
+			- current_user.voted.each do |ar|
+				- article = ar.article
+				tr
+					td = article.id
+					td = link_to article.title, article_path(article)
+					td 
+						- if ar.vote 
+							|	like 
+						- else 
+							|	unlike
+					td
+						= link_to 'Delete', article_user_path(ar) , method: :delete, data: { confirm: "Are you sure to delete vote?" }, class: 'btn blue  darken-4'  
+	.container
+		.row
+			.col.s12
+				= link_to 'Update', edit_user_registration_path , class: 'btn blue  darken-4' 
+				= link_to 'Logout', destroy_user_session_path , method: :delete, data: { confirm: "Are you sure to logout?" }, class: 'btn red  darken-4'

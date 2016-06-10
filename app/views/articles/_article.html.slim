@@ -1,0 +1,15 @@
+.articles-article-container 
+	article
+		.article-banner
+			.container
+				.row
+					.col.s12.m10.offset-m1.center-align
+						h1.title = article.title if !article.nil?
+						p = article.excerpt if !article.nil?
+		.article-content
+			.container
+				.row
+					.col.s12.article-detail
+						= simple_format article.content  if !article.nil?
+					.col.s12.article-button.center-align
+						= render 'form_vote', article: article   if !article.nil?

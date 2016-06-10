@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		= render 'layouts/head'
+	body 
+		header
+			= render 'layouts/header'
+
+		#main-site.main-site
+			= yield
+
+		footer
+			= render 'layouts/footer' 
